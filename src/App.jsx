@@ -1,10 +1,30 @@
 import React from 'react'
 
+import Square from './square/Square'
+
+import "./App.css"
+
+const renderFrom = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+
 const App = () => {
   return (
-    <div>
-      <div className="main-container">
-        <h1>Tic Tac Toe</h1>
+    <div className="main-container">
+      <div>
+        <div className='move-detect'>
+            <div className="left">Player 1</div>
+            <div className="right">Player 2</div>
+        </div>
+        <h1 className='game-title game-container'>Tic Tac Toe</h1>
+        <div className="square-wrapper">
+          {renderFrom.map((arr) => arr.map((e) => {
+            return <Square/>;
+          }))}
+          
+        </div>
       </div>
     </div>
   )

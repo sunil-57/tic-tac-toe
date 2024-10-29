@@ -1,0 +1,43 @@
+.main-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+.game-container{
+  background-color: #4b495f;
+}
+
+.game-title{
+  padding: 8px 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 38px;
+  letter-spacing: 0.25rem;
+}
+
+.square-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.move-detect{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left, .right{
+ height: 36px;
+ width: 130px;  
+ background-color: #4b495f;
+ padding-top: 12px;
+ font-size: medium;
+ font-weight: bold;
+ letter-spacing: 0.15rem;
+ border-bottom-left-radius: 55px;
+ border-top-right-radius: 55px;
+ text-align: center;
+}
