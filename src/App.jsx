@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Square from './square/Square'
 
@@ -11,6 +11,11 @@ const renderFrom = [
 ]
 
 const App = () => {
+  const [gameState, setGameState] = useState(renderFrom);
+  const [currentPlayer, setCurrentPlayer] = useState('circle');
+
+
+
   return (
     <div className="main-container">
       <div>
@@ -20,8 +25,11 @@ const App = () => {
         </div>
         <h1 className='game-title game-container'>Tic Tac Toe</h1>
         <div className="square-wrapper">
-          {renderFrom.map((arr) => arr.map((e) => {
-            return <Square/>;
+          {gameState.map((arr) => arr.map((e) => {
+            return <Square id={e} key={e}
+                currentPlayer = {currentPlayer} 
+                setCurrentPlayer = {setCurrentPlayer}
+                setGameState={setGameState} />;
           }))}
           
         </div>
