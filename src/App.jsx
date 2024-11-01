@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Square from './square/Square'
 
@@ -14,8 +14,17 @@ const App = () => {
   const [gameState, setGameState] = useState(renderFrom);
   const [currentPlayer, setCurrentPlayer] = useState('circle');
   const [finishedState, setFinishedState] = useState(false);
-
-
+  const checkWinner = () => {
+    for(let row = 0; row < gameState.length; row++){
+      if(gameState[row][0] === gameState[row][1] && gameState[row][1] === gameState[row][2]){
+        return gameState[row][0];
+      }
+    }
+  }
+  useEffect( () => {
+    console.log(checkWinner());
+    
+  }, [gameState])
   return (
     <div className="main-container">
       <div>
