@@ -56,6 +56,11 @@ const Square = (
   const [icon, setIcon] = useState(null);
 
   const clickOnSquare = () => {
+    
+    if(finishedState){
+      return;
+    }
+
     if(!icon){
       if(currentPlayer === "circle"){ 
         setIcon(circleSvg); 
@@ -76,7 +81,7 @@ const Square = (
     }
   }
   return (
-    <div onClick={clickOnSquare} className='square'>
+    <div onClick={clickOnSquare} className={`square ${finishedState ? 'not-allowed': ''}`}>
       {
         icon
       }

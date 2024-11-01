@@ -29,7 +29,7 @@ const App = () => {
     }
   }
   useEffect( () => {
-    console.log(checkWinner());
+    console.log(checkWinner())
     const winner = checkWinner();
     if(winner === 'circle' || winner === 'cross'){
       setFinishedState(winner);
@@ -50,11 +50,10 @@ const App = () => {
                 currentPlayer = {currentPlayer} 
                 setCurrentPlayer = {setCurrentPlayer}
                 setGameState={setGameState}
-                setFinishedState = {setFinishedState}
                 finishedState = {finishedState} />;
           }))}
-          
         </div>
+        <h3 className='finishedState'>{finishedState} won the Game</h3>
       </div>
     </div>
   )
