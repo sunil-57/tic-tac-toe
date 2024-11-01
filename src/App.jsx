@@ -15,14 +15,25 @@ const App = () => {
   const [currentPlayer, setCurrentPlayer] = useState('circle');
   const [finishedState, setFinishedState] = useState(false);
   const checkWinner = () => {
+    //checking winner with row
     for(let row = 0; row < gameState.length; row++){
       if(gameState[row][0] === gameState[row][1] && gameState[row][1] === gameState[row][2]){
         return gameState[row][0];
       }
     }
+    //checking winner with colum
+    for(let col = 0; col < gameState.length; col++){
+      if(gameState[0][col] === gameState[1][col] && gameState[1][col] === gameState[2][col]){
+        return gameState[0][col];
+      }
+    }
   }
   useEffect( () => {
     console.log(checkWinner());
+    const winner = checkWinner();
+    if(winner === 'circle' || winner === 'cross'){
+      setFinishedState(winner);
+    }
     
   }, [gameState])
   return (
