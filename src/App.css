@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10vh;
+  margin-top: 5vh;
 }
 
 .game-container{
@@ -40,4 +40,11 @@
  border-bottom-left-radius: 55px;
  border-top-right-radius: 55px;
  text-align: center;
+}
+
+.finished-State{
+  font-size: 32px;
+  padding: 0px;
+  margin:
+  text-align: center;
 }

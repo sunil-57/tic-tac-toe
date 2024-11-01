@@ -53,7 +53,12 @@ const App = () => {
                 finishedState = {finishedState} />;
           }))}
         </div>
-        <h3 className='finishedState'>{finishedState} won the Game</h3>
+        {
+          finishedState && (
+            <h3 className='finished-State'>{finishedState} won the Game</h3>
+          )
+        }
+       
       </div>
     </div>
   )
