@@ -45,11 +45,12 @@ const crossSvg = (
 
 const Square = (
   {
-
     setGameState,
     id,
     currentPlayer,
-    setCurrentPlayer
+    setCurrentPlayer,
+    finishedState,
+    setFinishedState
   }
 ) => {
   const [icon, setIcon] = useState(null);
@@ -61,7 +62,17 @@ const Square = (
       }else{
         setIcon(crossSvg);
       }
-    setCurrentPlayer(currentPlayer === 'circle' ? 'cross' : 'circle')
+
+    const myCurrentPlayer = currentPlayer;
+
+    setCurrentPlayer(currentPlayer === 'circle' ? 'cross' : 'circle');
+    setGameState(prevState => {
+      let newState = [...prevState]
+      const rowIndex = Math.floor(id/3);
+      const colIndex = id % 3;
+      newState[rowIndex][colIndex] = myCurrentPlayer; 
+      return newState;
+    })
     }
   }
   return (

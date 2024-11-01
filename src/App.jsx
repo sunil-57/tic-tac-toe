@@ -13,7 +13,7 @@ const renderFrom = [
 const App = () => {
   const [gameState, setGameState] = useState(renderFrom);
   const [currentPlayer, setCurrentPlayer] = useState('circle');
-
+  const [finishedState, setFinishedState] = useState(false);
 
 
   return (
@@ -25,11 +25,13 @@ const App = () => {
         </div>
         <h1 className='game-title game-container'>Tic Tac Toe</h1>
         <div className="square-wrapper">
-          {gameState.map((arr) => arr.map((e) => {
-            return <Square id={e} key={e}
+          {gameState.map((arr, rowIndex) => arr.map((e, colIndex) => {
+            return <Square id = {rowIndex * 3 + colIndex} key={rowIndex * 3 + colIndex}
                 currentPlayer = {currentPlayer} 
                 setCurrentPlayer = {setCurrentPlayer}
-                setGameState={setGameState} />;
+                setGameState={setGameState}
+                setFinishedState = {setFinishedState}
+                finishedState = {finishedState} />;
           }))}
           
         </div>
