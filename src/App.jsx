@@ -21,12 +21,20 @@ const App = () => {
         return gameState[row][0];
       }
     }
-    //checking winner with colum
+    //checking winner with column
     for(let col = 0; col < gameState.length; col++){
       if(gameState[0][col] === gameState[1][col] && gameState[1][col] === gameState[2][col]){
         return gameState[0][col];
       }
     }
+    //checking winner at the diagonals
+    if(gameState[0][0] === gameState[1][1] && gameState[1][1] === gameState[2][2]){
+      return gameState[0][0];
+    }
+    if(gameState[0][2] === gameState[1][1] && gameState[1][1] === gameState[2][0]){
+      return gameState[0][2];
+    }
+
   }
   useEffect( () => {
     console.log(checkWinner())
